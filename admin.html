@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Add Resource</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    .box {
+      margin: 100px auto;
+      width: 300px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #ddd;
+    }
+
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 8px 16px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Add Resource</h2>
+
+  <input type="text" id="resourceName" placeholder="Enter resource name">
+
+  <button onclick="addResource()">Add</button>
+</div>
+
+<script>
+function addResource() {
+  let name = document.getElementById("resourceName").value;
+
+  if (!name) {
+    alert("Enter resource name");
+    return;
+  }
+
+  let resources = JSON.parse(localStorage.getItem("resources")) || [];
+
+  resources.push(name);
+
+  localStorage.setItem("resources", JSON.stringify(resources));
+
+  alert("Resource Added!");
+
+  document.getElementById("resourceName").value = "";
+}
+</script>
+
+</body>
+</html>

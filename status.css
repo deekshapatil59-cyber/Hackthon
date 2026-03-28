@@ -1,0 +1,14 @@
+.available {
+    color: green;
+    font-weight: bold;
+}
+
+.booked {
+    color: red;
+    font-weight: bold;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+  <h2>Smart Campus</h2>
+  <ul>
+    <li> Dashboard</li>
+    
+    <!-- ADD THIS LINE -->
+    <li onclick="goToResources()"> Resources</li>
+    
+    
+  </ul>
+  </div>
+
+  <script>
+  function goToResources() {
+  window.location.href = "resources.html";
+  }
+  </script>
+
+  <!-- Main -->
+  <div class="main">
+
+    <!-- Header -->
+    <div class="header">
+      <h1>Dashboard</h1>
+      <p>Welcome back</p>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+
+      <div class="card">
+        <h3>Total Bookings</h3>
+        <p>0</p>
+      </div>
+
+      <div class="card">
+        <h3>Active Rooms</h3>
+        <p>0</p>
+      </div>
+
+      <div class="card">
+        <h3>Available Labs</h3>
+        <p>0</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

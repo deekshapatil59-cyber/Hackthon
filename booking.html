@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Resource</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 400px;
+      margin: 80px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .back {
+      margin-top: 15px;
+      display: block;
+      color: #007bff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+
+<div class="container">
+  <h2>Book Resource</h2>
+
+  <p id="resourceName">Loading...</p>
+
+  <input type="date" id="date" required>
+  <input type="time" id="time" required>
+
+  <button onclick="saveBooking()">Confirm Booking</button>
+
+  <span class="back" onclick="goBack()">← Back to Resources</span>
+</div>
+
+<script>
+
+// Get selected resource
+let resource = localStorage.getItem("selectedResource");
+
+document.getElementById("resourceName").innerText =
+  "Resource: " + (resource || "Not Selected");
+
+// Save booking
+function saveBooking() {
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+
+  if (!date || !time) {
+    alert("Please select date and time");
+    return;
+  }
+
+  let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  // 🚫 Conflict detection
+  let conflict = bookings.find(b =>
+    b.resource === resource &&
+    b.date === date &&
+    b.time === time
+  );
+
+  if (conflict) {
+    alert("❌ This slot is already booked!");
+    return;
+  }
+
+  // Save booking
+  bookings.push({ resource, date, time });
+
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+
+  alert("✅ Booking Confirmed!");
+
+  // Redirect to dashboard
+  window.location.href = "dashboard.html";
+}
+
+// Back button
+function goBack() {
+  window.location.href = "resources.html";
+}
+
+</script>
+
+</body>
+</html>

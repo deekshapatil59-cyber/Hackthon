@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resources</title>
+  <link rel="stylesheet" href="resources.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="container">
+  <h1>Available Resources</h1>
+
+  <!-- ADD THIS -->
+  <div id="resourceList"></div>
+
+  </div>
+</div>
+
+<script>
+// Get resources (from admin or default)
+let resources = JSON.parse(localStorage.getItem("resources")) || [
+  "Computer Lab",
+  "Seminar Hall",
+  "Classroom A"
+];
+
+const container = document.getElementById("resourceList");
+
+// Show resources dynamically
+resources.forEach(r => {
+  const div = document.createElement("div");
+  div.className = "resource";
+
+  div.innerHTML = `
+    <h3>${r}</h3>
+    <p>Status: Available</p>
+    <button onclick="bookResource('${r}')">Book</button>
+  `;
+
+  container.appendChild(div);
+});
+
+// Booking function
+function bookResource(resourceName) {
+  localStorage.setItem("selectedResource", resourceName);
+  window.location.href = "booking.html";
+}
+</script>
+
+</body>
+</html>
