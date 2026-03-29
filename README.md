@@ -143,18 +143,11 @@ Each user has different access permissions.
 
 ---
 
-##  Sample Screens (Optional)
-
-You can add screenshots here:
-
-Example:
-
-```
+##  Sample Screens 
+WElcome page
+<img width="800" height="404" alt="Screenshot 2026-03-28 035333" src="https://github.com/user-attachments/assets/ae553bac-173e-435e-89ed-9278081ea05f" />
 ![Login Page](images/login.png)
 ![Dashboard](images/dashboard.png)
-```
-
----
 
 ##  Installation Steps
 
