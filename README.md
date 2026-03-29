@@ -145,10 +145,12 @@ Each user has different access permissions.
 
 ##  Sample Screens 
 WElcome page
+
 <img width="800" height="404" alt="Screenshot 2026-03-28 035333" src="https://github.com/user-attachments/assets/ae553bac-173e-435e-89ed-9278081ea05f" />
 
 
 Login Page
+
 <img width="522" height="643" alt="Screenshot 2026-03-28 035358" src="https://github.com/user-attachments/assets/00798432-0529-4580-bc58-5a9aa126ed11" />
 
 Dashboard Page
